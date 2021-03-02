@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package soma;
+package presentation;
 
 import javax.swing.JOptionPane;
+import model.Controle;
 
 /**
  *
@@ -140,13 +141,14 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
+        Controle controle = new Controle();
+        controle.numero1 = 0.0;
+        controle.numero2 = 0.0;
         try
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(numero1 + numero2));
+            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
+            lblResultado.setText(String.valueOf(controle.numero1 + controle.numero2));
         }
         catch (Exception e)
         {
@@ -156,13 +158,14 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
     {//GEN-HEADEREND:event_btnSubtrairActionPerformed
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
+        Controle controle = new Controle();
+        controle.numero1 = 0.0;
+        controle.numero2 = 0.0;
         try
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(numero1 - numero2));
+            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
+            lblResultado.setText(String.valueOf(controle.numero1 - controle.numero2));
         }
         catch (Exception e)
         {
@@ -172,13 +175,14 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
     {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
+        Controle controle = new Controle();
+        controle.numero1 = 0.0;
+        controle.numero2 = 0.0;
         try
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(numero1 * numero2));
+            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
+            lblResultado.setText(String.valueOf(controle.numero1 * controle.numero2));
         }
         catch (Exception e)
         {
@@ -188,22 +192,19 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
     {//GEN-HEADEREND:event_btnDividirActionPerformed
-        Double numero1 = 0.0;
-        Double numero2 = 0.0;
-        String resultado = "";
+        Controle controle = new Controle();
+        controle.numero1 = 0.0;
+        controle.numero2 = 0.0;
         try
         {
-            numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            resultado = String.valueOf(numero1 / numero2);
-            
-            if (numero1 != 0 || numero2 != 0) {
-                if (resultado != "Infinity" && resultado != "0") {
-                    lblResultado.setText(resultado); 
-                } else {
-                    lblResultado.setText("Não é possível dividir por zero (0)");   
-                }
+            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
+            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
+            if (controle.numero2 == 0) {
+                lblResultado.setText("Não é possível dividir por zero (0)");
+            } else {
+                lblResultado.setText(String.valueOf(controle.numero1 / controle.numero2));
             }
+           
         }
         catch (Exception e)
         {
