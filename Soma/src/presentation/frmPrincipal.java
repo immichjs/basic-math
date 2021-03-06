@@ -142,73 +142,52 @@ public class frmPrincipal extends javax.swing.JDialog
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
         Controle controle = new Controle();
-        controle.numero1 = 0.0;
-        controle.numero2 = 0.0;
-        try
-        {
-            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(controle.numero1 + controle.numero2));
-        }
-        catch (Exception e)
-        {
-            lblResultado.setText("Digite um número válido");
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcular("+");
+        if (controle.mensagem.equals("")) {
+            lblResultado.setText(controle.resultado);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
     }//GEN-LAST:event_btnSomarActionPerformed
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
     {//GEN-HEADEREND:event_btnSubtrairActionPerformed
         Controle controle = new Controle();
-        controle.numero1 = 0.0;
-        controle.numero2 = 0.0;
-        try
-        {
-            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(controle.numero1 - controle.numero2));
-        }
-        catch (Exception e)
-        {
-            lblResultado.setText("Digite um número válido");
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcular("-");
+        if (controle.mensagem.equals("")) {
+            lblResultado.setText(controle.resultado);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
     {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
         Controle controle = new Controle();
-        controle.numero1 = 0.0;
-        controle.numero2 = 0.0;
-        try
-        {
-            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            lblResultado.setText(String.valueOf(controle.numero1 * controle.numero2));
-        }
-        catch (Exception e)
-        {
-            lblResultado.setText("Digite um número válido");
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcular("*");
+        if (controle.mensagem.equals("")) {
+            lblResultado.setText(controle.resultado);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
     }//GEN-LAST:event_btnMultiplicarActionPerformed
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
     {//GEN-HEADEREND:event_btnDividirActionPerformed
         Controle controle = new Controle();
-        controle.numero1 = 0.0;
-        controle.numero2 = 0.0;
-        try
-        {
-            controle.numero1 = Double.parseDouble(txfPrimeiroNumero.getText());
-            controle.numero2 = Double.parseDouble(txfSegundoNumero.getText());
-            if (controle.numero2 == 0) {
-                lblResultado.setText("Não é possível dividir por zero (0)");
-            } else {
-                lblResultado.setText(String.valueOf(controle.numero1 / controle.numero2));
-            }
-           
-        }
-        catch (Exception e)
-        {
-            lblResultado.setText("Digite um número válido");
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.calcular("/");
+        if (controle.mensagem.equals("")) {
+            lblResultado.setText(controle.resultado);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.mensagem);
         }
     }//GEN-LAST:event_btnDividirActionPerformed
 
