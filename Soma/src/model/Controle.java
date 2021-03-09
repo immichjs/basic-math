@@ -12,40 +12,53 @@ package model;
 public class Controle {
     private Double numero1;
     private Double numero2;
-    public String resultado;
+    private String resultado;
     public String num1;
     public String num2;
     public String mensagem;
+
+    public Controle(String num1, String num2, String op) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.calcular(op);
+    }
+    
+    
     
     
     public void calcular(String op) {
         mensagem = "";
-        if (op.equals("+")) {
-            try {
-                numero1 = Double.parseDouble(num1);
-                numero2 = Double.parseDouble(num2);
-                resultado = String.valueOf(numero1 + numero2);
-            } catch(Exception e) {
-              mensagem = "Erro de conversão";
-            }
-        } else if (op.equals("-")) {
-            try {
-                numero1 = Double.parseDouble(num1);
-                numero2 = Double.parseDouble(num2);
-                resultado = String.valueOf(numero1 - numero2);
-            } catch(Exception e) {
-              mensagem = "Erro de conversão";
-            }
-        } else if (op.equals("*")) {
-            try {
-                numero1 = Double.parseDouble(num1);
-                numero2 = Double.parseDouble(num2);
-                resultado = String.valueOf(numero1 * numero2);
-            } catch(Exception e) {
-              mensagem = "Erro de conversão";
-            }
-        } else if (op.equals("/")) {
-            try {
+        
+        switch(op) {
+            case "+":
+                try {
+                    numero1 = Double.parseDouble(num1);
+                    numero2 = Double.parseDouble(num2);
+                    resultado = String.valueOf(numero1 + numero2);
+                } catch(Exception e) {
+                  mensagem = "Erro de conversão";
+                }
+                break;
+            case "-":
+                try {
+                    numero1 = Double.parseDouble(num1);
+                    numero2 = Double.parseDouble(num2);
+                    resultado = String.valueOf(numero1 - numero2);
+                } catch(Exception e) {
+                  mensagem = "Erro de conversão";
+                }
+                break;
+            case "*":
+                try {
+                    numero1 = Double.parseDouble(num1);
+                    numero2 = Double.parseDouble(num2);
+                    resultado = String.valueOf(numero1 * numero2);
+                } catch(Exception e) {
+                  mensagem = "Erro de conversão";
+                }
+                break;
+            case "/":
+                try {
                 numero1 = Double.parseDouble(num1);
                 numero2 = Double.parseDouble(num2);
                 if (numero2 == 0) {
@@ -56,7 +69,12 @@ public class Controle {
             } catch(Exception e) {
               mensagem = "Erro de conversão";
             }
+            break;
         }
+    }
+
+    public String getResultado() {
+        return resultado;
     }
     
 }
