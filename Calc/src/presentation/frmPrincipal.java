@@ -141,22 +141,62 @@ public class frmPrincipal extends javax.swing.JDialog
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSomarActionPerformed
     {//GEN-HEADEREND:event_btnSomarActionPerformed
+        Controle controle = new Controle();
         
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.operation = "+";
+        controle.execute();
+        if (controle.message.equals("")) {
+            lblResultado.setText(controle.result);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.message);
+        }
     }//GEN-LAST:event_btnSomarActionPerformed
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSubtrairActionPerformed
     {//GEN-HEADEREND:event_btnSubtrairActionPerformed
-       
+       Controle controle = new Controle();
+        
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.operation = "-";
+        controle.execute();
+        if (controle.message.equals("")) {
+            lblResultado.setText(controle.result);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.message);
+        }
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
     private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMultiplicarActionPerformed
     {//GEN-HEADEREND:event_btnMultiplicarActionPerformed
+        Controle controle = new Controle();
         
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.operation = "*";
+        controle.execute();
+        if (controle.message.equals("")) {
+            lblResultado.setText(controle.result);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.message);
+        }
     }//GEN-LAST:event_btnMultiplicarActionPerformed
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDividirActionPerformed
     {//GEN-HEADEREND:event_btnDividirActionPerformed
+        Controle controle = new Controle();
         
+        controle.num1 = txfPrimeiroNumero.getText();
+        controle.num2 = txfSegundoNumero.getText();
+        controle.operation = "/";
+        controle.execute();
+        if (controle.message.equals("")) {
+            lblResultado.setText(controle.result);
+        } else {
+            JOptionPane.showMessageDialog(null, controle.message);
+        }
     }//GEN-LAST:event_btnDividirActionPerformed
 
     
