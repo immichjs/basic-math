@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author 55159
- */
-public class Validacao {
-    public String num1;
-    public String num2;
-    public Double number1;
-    public Double number2;
-    public String message;
-    public String operation;
+public class Validacao extends absPropriedades {
     
-    public void validate() {
+    public Validacao(String num1, String num2, String operation) {
+        this.num1 = num1.replaceAll(",", ".");
+        this.num2 = num2.replaceAll(",", ".");
+        this.operation = operation;
+        this.validate();
+    }
+    
+    private void validate() {
         message = "";
         
         try {

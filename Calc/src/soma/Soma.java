@@ -9,5 +9,4 @@ public class Soma
         frmPrincipal frmP = new frmPrincipal(null, true);
         frmP.setVisible(true);
     }
-    
 }

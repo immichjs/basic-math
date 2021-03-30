@@ -1,42 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author 55159
- */
-public class Controle {
-    public String num1;
-    public String num2;
-    public String message;
-    public String operation;
-    public String result;
+public class Controle extends absPropriedades {
+    
+    public Controle(String num1, String num2, String operation) {
+        this.num1 = num1;
+        this.num2 = num2;
+        this.operation = operation;
+        this.execute();
+    }
     
     public void execute() {
         this.message = "";
-        Validacao validacao = new Validacao();
+        Validacao validacao = new Validacao(this.num1, this.num2, this.operation);
         
-        validacao.num1 = this.num1;
-        validacao.num2 = this.num2;
-        validacao.operation = this.operation;
-        
-        validacao.validate();
-        if (validacao.message.equals("")) {
-            Calcular calcular = new Calcular();
+        if (validacao.getMessage().equals("")) {
+            Calcular calcular = new Calcular(validacao.getNumber1(), validacao.getNumber2(), this.operation);
             
-            calcular.number1 = validacao.number1;
-            calcular.number2 = validacao.number2;
-            calcular.operation = this.operation;
-            
-            calcular.solve();
-            this.result = calcular.result;
+            this.result = calcular.getResult();
         } else {
             
-            this.message = validacao.message;
+            this.message = validacao.getMessage();
         }
     }
     

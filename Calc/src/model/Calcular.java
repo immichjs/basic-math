@@ -1,35 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author 55159
- */
-public class Calcular {
-    public Double number1;
-    public Double number2;
-    public String operation;
-    public String result;
+import java.text.DecimalFormat;
+
+public class Calcular extends absPropriedades {
+    
+    public Calcular(Double number1, Double number2, String operation) {
+        this.number1 = number1;
+        this.number2 = number2;
+        this.operation = operation;
+        this.solve();
+    }
     
     public void solve() {
-        switch(operation) {
-            case "+":
-                result = String.valueOf(number1 + number2);
-                break;
-            case "-":
-                result = String.valueOf(number1 - number2);
-                break;
-            case "*":
-                result = String.valueOf(number1 * number2);
-                break;
-            case "/":
-                result = String.valueOf(number1 / number2);
-                break;
-        }
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+        if (operation.equals("+"))
+            result = df.format(number1 + number2);
+        if (operation.equals("-"))
+            result = df.format(number1 - number2);
+        if (operation.equals("*"))
+            result = df.format(number1 * number2);
+        if (operation.equals("/"))
+            result = df.format(number1 / number2);
+        
     }
     
 }
